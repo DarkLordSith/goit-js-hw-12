@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GOITHW11</title>
+    <title>GOITHW12</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,9 +39,14 @@
       </form>
     </header>
     <main>
-      <ul id="gallery" class="gallery"></ul>
-      <div id="loader" class="loader hidden">
+      <span id="loader" class="loader hidden">
         Loading images, please wait...
+      </span>
+      <ul id="gallery" class="gallery"></ul>
+      <div class="load-more">
+        <button id="load-more-btn" class="load-more-btn search-form-btn hidden">
+          Load more
+        </button>
       </div>
     </main>
     <script type="module" src="./main.js"></script>
