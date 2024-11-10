@@ -64,6 +64,7 @@ loaderMoreBtn.addEventListener('click', async () => {
   try {
     const data = await fetchImages(query, page);
     renderGallery(data.hits);
+    smoothScroll();
 
     if (data.hits.length < 15) {
       loaderMoreBtn.classList.add('hidden');
@@ -76,6 +77,8 @@ loaderMoreBtn.addEventListener('click', async () => {
         maxWidth: '432px',
         messageLineHeight: '88px',
       });
+    } else {
+      loaderMoreBtn.classList.remove('hidden');
     }
   } catch (error) {
     iziToast.error({
@@ -89,6 +92,14 @@ loaderMoreBtn.addEventListener('click', async () => {
     });
   } finally {
     loader.classList.add('hidden');
-    loaderMoreBtn.classList.remove('hidden');
   }
 });
+
+function smoothScroll() {
+  const { height: cardHeight } =
+    gallery.firstElementChild.getBoundingClientRect();
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
+}
